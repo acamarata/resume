@@ -1,0 +1,22 @@
+{
+  "name": "Aric Camarata - Software Engineer",
+  "short_name": "Aric Camarata",
+  "description": "Senior Software Engineer & Technology Leader specializing in blockchain and Web3 development",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0891b2",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}

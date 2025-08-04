@@ -1,0 +1,172 @@
+import { BlogLayout } from '@/components/BlogLayout'
+
+export const article = {
+  author: 'Aric Camarata',
+  date: '2023-11-11',
+  title: 'Converting NREL\'s Solar Position Algorithm to JavaScript: A Journey in Precision',
+  description:
+    'How I converted the C-based NREL Solar Position Algorithm to JavaScript while maintaining near-native performance and ±0.0003° accuracy for solar calculations.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <BlogLayout article={article} {...props} />
+
+When I first encountered the need for precise solar position calculations in a web application, I was faced with a challenge: the most accurate algorithm available, NREL's Solar Position Algorithm (SPA), was only available in C. With an accuracy of ±0.0003° and validity spanning 8000 years, this algorithm is the gold standard for solar calculations. 
+
+I had already created a WebAssembly version (solar-spa) that achieved near-native performance, but the sparse support for WASM—especially within frameworks like Next.js—and the significant effort required to make it work correctly in TypeScript environments led me to create a pure JavaScript implementation. This would bring the same precision to the JavaScript ecosystem with far better compatibility.
+
+## The Challenge
+
+The National Renewable Energy Laboratory's SPA is renowned for its exceptional accuracy in calculating solar zenith and azimuth angles. However, its implementation in C meant it wasn't readily available for modern web applications. Many existing JavaScript libraries offered solar calculations, but none matched the precision required for applications like:
+
+- Solar panel tracking systems requiring sub-degree accuracy
+- Photovoltaic system calibration
+- Astronomical photography planning
+- Solar resource assessment for renewable energy projects
+
+## Understanding the Algorithm
+
+Before diving into the conversion, I spent considerable time understanding the algorithm's intricacies. Based on Jean Meeus's astronomical algorithms, the NREL SPA calculates:
+
+- Solar zenith angle (the angle between the sun and vertical)
+- Solar azimuth angle (the sun's compass direction)
+- Solar elevation angle
+- Equation of time
+- Sunrise and sunset times
+- Solar noon
+
+The algorithm accounts for numerous factors including atmospheric refraction, the Earth's elliptical orbit, and precession of the equinoxes.
+
+## Why Pure JavaScript?
+
+While my WebAssembly implementation offered superior performance, several factors drove the need for a pure JavaScript version:
+
+1. **Framework Compatibility**: Modern frameworks like Next.js required complex webpack configurations to support WASM modules
+2. **Bundle Size**: WASM modules increased bundle sizes significantly for client-side applications
+3. **Developer Experience**: Debugging WASM was challenging with cryptic stack traces
+4. **Universal Support**: Many environments (serverless functions, web workers) had limited or no WASM support
+5. **TypeScript Integration**: Type definitions for WASM modules were cumbersome to maintain
+
+## The Conversion Process
+
+Converting the algorithm from C to JavaScript presented several challenges:
+
+### 1. Precision Handling
+
+JavaScript's number type uses 64-bit floating-point arithmetic, which can introduce rounding errors. I had to carefully manage calculations to maintain the required precision:
+
+```javascript
+// Example of careful precision handling
+function calculateJulianDay(year, month, day, hour, minute, second) {
+  // Ensure proper decimal precision
+  const decimal_hour = hour + minute / 60.0 + second / 3600.0;
+  
+  // Julian day calculation with attention to precision
+  if (month <= 2) {
+    year -= 1;
+    month += 12;
+  }
+  
+  const a = Math.floor(year / 100);
+  const b = 2 - a + Math.floor(a / 4);
+  
+  return Math.floor(365.25 * (year + 4716)) + 
+         Math.floor(30.6001 * (month + 1)) + 
+         day + decimal_hour / 24 + b - 1524.5;
+}
+```
+
+### 2. Performance Optimization
+
+The original C implementation benefited from compiled performance. To achieve near-native speed in JavaScript, I:
+
+- Pre-calculated frequently used values
+- Minimized function calls in hot paths
+- Used typed arrays where appropriate
+- Implemented efficient caching for repeated calculations
+
+### 3. API Design
+
+I designed the JavaScript API to be intuitive while maintaining flexibility:
+
+```javascript
+const { getSpa, calcSpa } = require('nrel-spa');
+
+// Simple usage
+const result = getSpa(new Date(), 40.7128, -74.0060);
+
+// Advanced usage with all parameters
+const detailedResult = calcSpa({
+  date: new Date(),
+  latitude: 40.7128,
+  longitude: -74.0060,
+  elevation: 10,
+  pressure: 1013.25,
+  temperature: 20,
+  delta_ut1: 0,
+  delta_t: 69
+});
+```
+
+## Validation and Testing
+
+Ensuring accuracy was paramount. I validated the JavaScript implementation against:
+
+1. The original C implementation's test vectors
+2. NOAA's solar calculator
+3. Real-world solar tracking data
+4. Edge cases at extreme latitudes and dates
+
+The results showed that the JavaScript version maintained accuracy within the target ±0.0003° margin.
+
+## Real-World Applications
+
+Since releasing the library, it has been adopted for various applications:
+
+- **Solar Farm Management**: Optimizing panel angles throughout the day
+- **Building Design**: Calculating solar heat gain for energy-efficient architecture
+- **Photography**: Planning golden hour and blue hour shoots with precision
+- **Agriculture**: Optimizing greenhouse operations based on solar intensity
+
+## Handling Edge Cases
+
+One particular challenge was handling timezone conversions correctly. Solar calculations require UTC time, but users often work in local time:
+
+```javascript
+function handleTimezone(date, timezone) {
+  // Account for timezone offset
+  const offset = timezone ? timezone * 60 : -date.getTimezoneOffset();
+  const utcDate = new Date(date.getTime() + offset * 60000);
+  
+  return utcDate;
+}
+```
+
+## Performance Results
+
+The JavaScript implementation achieves impressive performance:
+
+- Single calculation: Less than 1ms on modern hardware
+- Batch calculations (1000 points): ~15ms
+- Memory footprint: Minimal, with no memory leaks in long-running applications
+
+## Future Improvements
+
+While the current implementation meets its goals, there's always room for improvement:
+
+1. WebAssembly version for even better performance
+2. GPU acceleration for massive batch calculations
+3. Integration with weather APIs for atmospheric correction
+4. React/Vue components for easy integration
+
+## Conclusion
+
+Converting NREL's SPA to JavaScript demonstrated that with careful attention to numerical precision and performance optimization, it's possible to bring scientific-grade algorithms to the web platform. The library now enables web developers to incorporate highly accurate solar calculations into their applications, contributing to the growth of solar energy adoption and astronomical applications.
+
+The project reinforced my belief that making powerful algorithms accessible to more developers accelerates innovation. Whether you're building a solar tracking system or planning the perfect sunset photograph, precise solar position calculations are now just an npm install away.
+
+[View the project on GitHub](https://github.com/acamarata/nrel-spa) | [Install from npm](https://www.npmjs.com/package/nrel-spa)

@@ -1,0 +1,355 @@
+import { BlogLayout } from '@/components/BlogLayout'
+
+export const article = {
+  author: 'Aric Camarata',
+  date: '2023-12-01',
+  title: 'Luxon Hijri: Bridging Islamic and Gregorian Calendars in TypeScript',
+  description:
+    'Creating a TypeScript library for accurate Hijri calendar conversions using the Umm al-Qura system, enabling developers to build culturally-aware applications.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <BlogLayout article={article} {...props} />
+
+Working on a project for a global audience taught me an important lesson: date handling goes far beyond timezone conversions. When building an application used by Muslim communities worldwide, I discovered the critical need for accurate Islamic (Hijri) calendar support. This led me to create Luxon Hijri, a TypeScript library that seamlessly integrates Hijri dates with the popular Luxon date library.
+
+## The Challenge of Dual Calendar Systems
+
+Many developers don't realize that over 1.8 billion Muslims worldwide use two calendar systems simultaneously:
+- The Gregorian calendar for business and daily life
+- The Hijri calendar for religious observances
+
+The Hijri calendar is lunar-based with 354 or 355 days per year, making conversion complex. Key events like Ramadan, Eid celebrations, and Hajj follow this calendar, making accurate conversion essential for:
+
+- Religious event planning applications
+- Islamic finance systems (which calculate profit-sharing based on lunar months)
+- Government services in Muslim-majority countries
+- Global enterprise software serving diverse populations
+
+## Why Umm al-Qura?
+
+Several Hijri calendar calculation methods exist, but I chose the Umm al-Qura system for important reasons:
+
+1. **Official Adoption**: It's Saudi Arabia's official calendar, used for Makkah and Madinah
+2. **Predictability**: Uses astronomical calculations rather than moon sightings
+3. **Accuracy**: Maintained by King Abdulaziz City for Science and Technology
+4. **Global Standard**: Widely accepted for civil purposes
+
+## Building the Library
+
+### Core Architecture
+
+I built Luxon Hijri on three principles:
+
+1. **Seamless Integration**: Work naturally with Luxon's API
+2. **Type Safety**: Full TypeScript support with comprehensive types
+3. **Performance**: Efficient algorithms with minimal overhead
+
+```typescript
+// Clean, intuitive API
+import { toHijri, toGregorian, formatHijri } from 'luxon-hijri';
+
+// Convert today to Hijri
+const hijriDate = toHijri(new Date());
+console.log(hijriDate); // { year: 1445, month: 5, day: 23 }
+
+// Convert back to Gregorian
+const gregorianDate = toGregorian(1445, 5, 23);
+
+// Format with patterns
+const formatted = formatHijri(new Date(), 'dd MMMM yyyy');
+// Output: "23 Jumada al-Ula 1445"
+```
+
+### Technical Implementation
+
+The conversion algorithm handles the complexity of lunar calculations:
+
+```typescript
+interface UmmalquraData {
+  year: number;
+  month: number;
+  day: number;
+  julianDay: number;
+}
+
+function gregorianToHijri(date: Date): HijriDate {
+  const julianDay = calculateJulianDay(date);
+  
+  // Binary search through pre-calculated Umm al-Qura data
+  let min = 0;
+  let max = ummalquraData.length - 1;
+  
+  while (min <= max) {
+    const mid = Math.floor((min + max) / 2);
+    const midValue = ummalquraData[mid].julianDay;
+    
+    if (julianDay < midValue) {
+      max = mid - 1;
+    } else if (julianDay > midValue) {
+      min = mid + 1;
+    } else {
+      return extractHijriDate(ummalquraData[mid]);
+    }
+  }
+  
+  // Calculate exact date from nearest data point
+  return calculateFromNearestPoint(julianDay, ummalquraData[max]);
+}
+```
+
+### Localization Support
+
+Supporting multiple languages was crucial:
+
+```typescript
+const locales = {
+  ar: {
+    months: ['محرم', 'صفر', 'ربيع الأول', 'ربيع الآخر', 
+             'جمادى الأولى', 'جمادى الآخرة', 'رجب', 'شعبان',
+             'رمضان', 'شوال', 'ذو القعدة', 'ذو الحجة'],
+    format: 'iYYYY/iMM/iDD'
+  },
+  en: {
+    months: ['Muharram', 'Safar', 'Rabi\' al-awwal', 'Rabi\' al-thani',
+             'Jumada al-ula', 'Jumada al-akhirah', 'Rajab', 'Sha\'ban',
+             'Ramadan', 'Shawwal', 'Dhu al-Qi\'dah', 'Dhu al-Hijjah'],
+    format: 'iDD iMMMM iYYYY'
+  }
+};
+
+function formatHijri(date: Date, pattern: string, locale = 'en') {
+  const hijri = toHijri(date);
+  const localeData = locales[locale];
+  
+  return pattern.replace(/iYYYY|iMMMM|iMM|iDD/g, (match) => {
+    switch (match) {
+      case 'iYYYY': return hijri.year.toString();
+      case 'iMMMM': return localeData.months[hijri.month - 1];
+      case 'iMM': return hijri.month.toString().padStart(2, '0');
+      case 'iDD': return hijri.day.toString().padStart(2, '0');
+      default: return match;
+    }
+  });
+}
+```
+
+## Real-World Applications
+
+### Ramadan Planning App
+
+One user built a Ramadan planning application:
+
+```typescript
+function getRamadanDates(gregorianYear: number) {
+  const dates = [];
+  
+  // Check each day of the Gregorian year
+  for (let m = 0; m < 12; m++) {
+    const daysInMonth = new Date(gregorianYear, m + 1, 0).getDate();
+    
+    for (let d = 1; d <= daysInMonth; d++) {
+      const date = new Date(gregorianYear, m, d);
+      const hijri = toHijri(date);
+      
+      // Ramadan is the 9th month
+      if (hijri.month === 9) {
+        dates.push({
+          gregorian: date,
+          hijri,
+          dayOfRamadan: hijri.day
+        });
+      }
+    }
+  }
+  
+  return dates;
+}
+```
+
+### Islamic Finance Calculator
+
+Another implementation for profit distribution:
+
+```typescript
+function calculateProfitShare(
+  principal: number,
+  startDate: Date,
+  endDate: Date,
+  annualRate: number
+) {
+  const startHijri = toHijri(startDate);
+  const endHijri = toHijri(endDate);
+  
+  // Calculate months between dates
+  let months = (endHijri.year - startHijri.year) * 12 +
+               (endHijri.month - startHijri.month);
+  
+  // Adjust for partial months
+  if (endHijri.day < startHijri.day) {
+    months -= 1;
+    const daysInMonth = getHijriMonthDays(endHijri.year, endHijri.month);
+    months += (daysInMonth - startHijri.day + endHijri.day) / daysInMonth;
+  }
+  
+  // Islamic finance uses lunar months
+  return principal * (annualRate / 12) * months;
+}
+```
+
+### Prayer Time Integration
+
+Combining with prayer time calculations:
+
+```typescript
+interface PrayerSchedule {
+  date: Date;
+  hijriDate: HijriDate;
+  prayers: PrayerTimes;
+  isRamadan: boolean;
+}
+
+function generateMonthlySchedule(
+  gregorianMonth: number,
+  gregorianYear: number,
+  location: Coordinates
+): PrayerSchedule[] {
+  const schedule: PrayerSchedule[] = [];
+  const daysInMonth = new Date(gregorianYear, gregorianMonth + 1, 0).getDate();
+  
+  for (let day = 1; day <= daysInMonth; day++) {
+    const date = new Date(gregorianYear, gregorianMonth, day);
+    const hijriDate = toHijri(date);
+    
+    schedule.push({
+      date,
+      hijriDate,
+      prayers: calculatePrayerTimes(date, location),
+      isRamadan: hijriDate.month === 9
+    });
+  }
+  
+  return schedule;
+}
+```
+
+## Performance Optimization
+
+Achieving 130+ weekly downloads meant optimizing for production use:
+
+### Caching Strategy
+
+```typescript
+const conversionCache = new Map<string, HijriDate>();
+
+function toHijriCached(date: Date): HijriDate {
+  const key = date.toISOString().split('T')[0];
+  
+  if (conversionCache.has(key)) {
+    return conversionCache.get(key)!;
+  }
+  
+  const hijriDate = toHijri(date);
+  conversionCache.set(key, hijriDate);
+  
+  // Limit cache size
+  if (conversionCache.size > 1000) {
+    const firstKey = conversionCache.keys().next().value;
+    conversionCache.delete(firstKey);
+  }
+  
+  return hijriDate;
+}
+```
+
+### Bundle Size Optimization
+
+Keeping the library lightweight (27.3KB unpacked):
+
+```typescript
+// Tree-shakeable exports
+export { toHijri } from './converters/toHijri';
+export { toGregorian } from './converters/toGregorian';
+export { formatHijri } from './formatters/formatHijri';
+
+// Lazy load locale data
+async function loadLocale(locale: string) {
+  return import(`./locales/${locale}.json`);
+}
+```
+
+## Handling Edge Cases
+
+### Year Boundaries
+
+The Hijri year boundary doesn't align with Gregorian:
+
+```typescript
+function getHijriYearRange(hijriYear: number) {
+  // Find first day of Hijri year
+  const firstDay = toGregorian(hijriYear, 1, 1);
+  
+  // Find last day (month 12, day 29 or 30)
+  const lastMonth = 12;
+  const lastDay = getHijriMonthDays(hijriYear, lastMonth);
+  const lastDate = toGregorian(hijriYear, lastMonth, lastDay);
+  
+  return { start: firstDay, end: lastDate };
+}
+```
+
+### Leap Years
+
+Hijri leap years follow an 11-year cycle:
+
+```typescript
+function isHijriLeapYear(year: number): boolean {
+  // 11-year cycle: years 2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29
+  const cycle = year % 30;
+  const leapYears = [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29];
+  
+  return leapYears.includes(cycle);
+}
+```
+
+## Community Impact
+
+The library has enabled developers to build culturally-aware applications:
+
+- **E-commerce**: Show Ramadan sales during the correct dates
+- **Healthcare**: Schedule appointments avoiding religious holidays
+- **Education**: Academic calendars respecting both calendar systems
+- **Government Services**: Display dates in citizen-preferred formats
+
+## Future Roadmap
+
+Based on community feedback, I'm planning:
+
+1. **Additional Calendar Systems**: Support for other Islamic calculation methods
+2. **React/Vue Components**: Pre-built calendar widgets
+3. **Timezone Integration**: Better handling of moon sighting variations by region
+4. **Historical Data**: Extend support beyond current Umm al-Qura tables
+5. **Mobile SDKs**: Native implementations for React Native and Flutter
+
+## Lessons Learned
+
+Building Luxon Hijri taught me valuable lessons:
+
+1. **Cultural Sensitivity**: Technology should respect and accommodate different cultural practices
+2. **Precision Matters**: In religious contexts, being off by even one day is unacceptable
+3. **Community Input**: Early user feedback shaped critical features
+4. **Documentation**: Clear examples in multiple languages increased adoption
+
+## Conclusion
+
+Luxon Hijri represents more than just date conversion—it's about building inclusive software that serves global communities. By making Hijri calendar calculations accessible to TypeScript developers, we're enabling applications that respect cultural diversity and religious practices.
+
+The 130+ weekly downloads and growing adoption show the real need for such tools. Whether you're building an app for Muslim communities or adding cultural awareness to enterprise software, accurate calendar conversion is now straightforward.
+
+In our interconnected world, supporting multiple calendar systems isn't just nice to have—it's essential for truly global applications.
+
+[Get Luxon Hijri on npm](https://www.npmjs.com/package/luxon-hijri) | [Contribute on GitHub](https://github.com/acamarata/luxon-hijri)

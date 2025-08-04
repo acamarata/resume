@@ -1,0 +1,117 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Aric Camarata',
+  date: '2025-08-03',
+  title: 'Introducing Nself - Self-Hosted Backend Infrastructure CLI',
+  description:
+    'Today I\'m excited to release Nself, an open-source CLI that deploys complete backend infrastructure with a single command. Built for developers who want to eliminate infrastructure complexity and focus on building applications.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+I'm thrilled to announce the release of **Nself**, an open-source, self-hosted backend infrastructure CLI that revolutionizes how developers deploy complete backend stacks. After extensive development and testing, it's ready to transform your development workflow.
+
+## What is Nself?
+
+Nself is a powerful CLI tool that allows developers to deploy a feature-complete backend infrastructure on their own servers with a single command. It eliminates the complexity of setting up and configuring multiple backend services, providing everything you need to build modern applications.
+
+## Core Components
+
+Nself includes a comprehensive stack of modern backend services:
+
+### 🗄️ **Database & Storage**
+- **PostgreSQL 16** with powerful extensions
+- **MinIO Storage** for file and media management
+- **Redis** for caching and session management
+
+### 🚀 **API & Authentication**
+- **Hasura GraphQL Engine** for instant GraphQL APIs
+- **Nhost Authentication** with secure user management
+- **Serverless Functions** supporting TypeScript, Go, and Python
+
+### ⚙️ **Infrastructure Features**
+- **Single Command Deployment** (`nself up`)
+- **Automated SSL** with Let's Encrypt integration
+- **Smart Configurations** for development, staging, and production
+- **Microservices Support** in multiple languages
+
+## Getting Started
+
+Deploy your complete backend infrastructure with these simple steps:
+
+```bash
+# Clone and setup Nself
+git clone https://github.com/acamarata/nself
+cd nself
+cp .env.example .env.local
+```
+
+Configure your environment variables in `.env.local`, then deploy:
+
+```bash
+# Deploy complete backend stack
+nself up
+```
+
+That's it! Your backend infrastructure is now running with GraphQL APIs, authentication, storage, and serverless functions ready to use.
+
+## Deployment Environments
+
+Nself supports multiple deployment scenarios:
+
+### Local Development
+```bash
+# Quick local setup
+nself up --env=local
+```
+
+### Production with SSL
+```bash
+# Production deployment with automatic SSL
+nself up --env=production --ssl=auto
+```
+
+### Docker Swarm / Kubernetes
+```bash
+# Deploy to orchestration platforms
+nself deploy --platform=swarm
+nself deploy --platform=k8s
+```
+
+## The Journey
+
+Building Nself has been an incredible journey. As someone who's been coding since 2000 and professionally since 2007, I've experienced the pain of setting up complex backend infrastructures countless times. Each new project meant days or weeks of configuring databases, authentication, APIs, and deployment pipelines.
+
+The idea came from my own frustrations with the repetitive nature of backend setup. I wanted a solution that would eliminate the boilerplate and let developers focus on building their unique business logic, not wrestling with infrastructure configuration.
+
+## What's Next?
+
+This is just the beginning. I have exciting plans for Nself, including:
+
+- **Enhanced Database Migrations**: Advanced schema management and version control
+- **Multi-Cloud Support**: Deploy to AWS, GCP, Azure with unified configuration
+- **Advanced Monitoring**: Built-in observability and performance monitoring
+- **Custom Templates**: Create and share infrastructure templates for specific use cases
+- **Enhanced Security**: Advanced security scanning and compliance features
+
+## Join the Community
+
+I believe the best tools are built with community feedback. If you're interested in Nself:
+
+- **GitHub**: [github.com/acamarata/nself](https://github.com/acamarata/nself)
+- **Documentation**: [nself.org](https://nself.org)
+- **Issues & Features**: Report bugs and request features on GitHub
+
+## Thank You
+
+To everyone who provided feedback during development, thank you. Your insights have been invaluable in shaping Nself into what it is today.
+
+Give Nself a try and let me know what you think. I'm excited to see how the developer community uses it to eliminate infrastructure complexity and build amazing applications faster.
+
+Happy coding! 🚀

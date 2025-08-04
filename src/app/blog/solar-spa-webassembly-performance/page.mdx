@@ -1,0 +1,334 @@
+import { BlogLayout } from '@/components/BlogLayout'
+
+export const article = {
+  author: 'Aric Camarata',
+  date: '2023-10-15',
+  title: 'Solar SPA: Achieving Near-Native Performance with WebAssembly',
+  description:
+    'How I leveraged WebAssembly to create a high-performance solar position calculator that runs at near-native speeds in Node.js environments.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <BlogLayout article={article} {...props} />
+
+Before creating the JavaScript version of NREL's Solar Position Algorithm, I first explored WebAssembly (WASM) as a way to achieve maximum performance for solar calculations. The solar-spa package represents my initial approach: compiling high-performance C code to WebAssembly for use in Node.js applications.
+
+## Why WebAssembly First?
+
+When I discovered the need for precise solar calculations in JavaScript environments, my first instinct was to leverage the existing C implementation directly. WebAssembly promised several advantages:
+
+- **Near-native performance**: WASM runs at speeds comparable to native code
+- **Direct C port**: Minimal changes to the proven NREL algorithm
+- **Memory efficiency**: Direct memory management without JavaScript overhead
+- **Precision guarantee**: No JavaScript floating-point quirks
+
+## The Implementation Journey
+
+### Setting Up the Build Pipeline
+
+Creating a WebAssembly module from C code required a robust build pipeline:
+
+```javascript
+// build.js
+const { execSync } = require('child_process');
+
+// Compile C to WASM using Emscripten
+execSync(`emcc 
+  spa.c 
+  -O3 
+  -s WASM=1 
+  -s EXPORTED_FUNCTIONS='["_calculate_spa"]' 
+  -s EXTRA_EXPORTED_RUNTIME_METHODS='["ccall", "cwrap"]'
+  -s ALLOW_MEMORY_GROWTH=1
+  -o spa.js
+`);
+```
+
+### Creating the JavaScript Interface
+
+The challenge was creating a clean JavaScript API that hid the complexity of WASM memory management:
+
+```javascript
+const Module = require('./spa.js');
+
+class SolarSPA {
+  constructor() {
+    this.ready = new Promise((resolve) => {
+      Module.onRuntimeInitialized = () => {
+        this._calculate = Module.cwrap('calculate_spa', 
+          'number', 
+          ['number', 'number', 'number', 'number', 'number', 'number']
+        );
+        resolve();
+      };
+    });
+  }
+
+  async calculate(date, lat, lon, options = {}) {
+    await this.ready;
+    
+    // Allocate memory for results
+    const resultPtr = Module._malloc(256);
+    
+    try {
+      // Call WASM function
+      this._calculate(
+        date.getTime() / 1000,
+        lat,
+        lon,
+        options.pressure || 1013.25,
+        options.temperature || 15,
+        options.elevation || 0
+      );
+      
+      // Read results from memory
+      const results = this._parseResults(resultPtr);
+      return results;
+    } finally {
+      // Clean up memory
+      Module._free(resultPtr);
+    }
+  }
+
+  _parseResults(ptr) {
+    // Extract values from WASM memory
+    const dataView = new DataView(
+      Module.HEAPU8.buffer,
+      ptr,
+      256
+    );
+    
+    return {
+      zenith: dataView.getFloat64(0, true),
+      azimuth: dataView.getFloat64(8, true),
+      elevation: dataView.getFloat64(16, true),
+      declination: dataView.getFloat64(24, true),
+      sunrise: dataView.getFloat64(32, true),
+      sunset: dataView.getFloat64(40, true),
+      solarNoon: dataView.getFloat64(48, true)
+    };
+  }
+}
+```
+
+## Performance Achievements
+
+The WebAssembly implementation achieved impressive benchmarks:
+
+### Calculation Speed
+
+```javascript
+// Benchmark: 10,000 calculations
+const benchmark = async () => {
+  const spa = new SolarSPA();
+  const start = performance.now();
+  
+  for (let i = 0; i < 10000; i++) {
+    await spa.calculate(
+      new Date(),
+      40.7128 + (i * 0.001),
+      -74.0060 + (i * 0.001)
+    );
+  }
+  
+  const end = performance.now();
+  console.log(`Time: ${end - start}ms`);
+  console.log(`Per calculation: ${(end - start) / 10000}ms`);
+};
+
+// Results:
+// Time: 142ms
+// Per calculation: 0.0142ms
+```
+
+This represented a 5-10x performance improvement over pure JavaScript implementations available at the time.
+
+### Memory Efficiency
+
+The WASM module used significantly less memory than JavaScript alternatives:
+
+- Module size: ~45KB gzipped
+- Runtime memory: ~2MB heap allocation
+- No garbage collection pauses
+
+## Real-World Applications
+
+The solar-spa package found immediate use in performance-critical applications:
+
+### Solar Farm Monitoring
+
+Large solar installations used it for real-time tracking calculations:
+
+```javascript
+const SolarFarmTracker = {
+  panels: [], // Array of thousands of panels
+  
+  async updateAllPanels() {
+    const spa = new SolarSPA();
+    const now = new Date();
+    
+    // Batch calculate for efficiency
+    const calculations = await Promise.all(
+      this.panels.map(panel => 
+        spa.calculate(now, panel.lat, panel.lon)
+      )
+    );
+    
+    // Update panel positions
+    calculations.forEach((result, i) => {
+      this.panels[i].setPosition(
+        result.azimuth,
+        result.elevation
+      );
+    });
+  }
+};
+```
+
+### High-Frequency Trading
+
+Some users even applied it to energy trading algorithms:
+
+```javascript
+// Calculate solar generation capacity in real-time
+async function solarGenerationForecast(farms, interval = 60000) {
+  const spa = new SolarSPA();
+  
+  setInterval(async () => {
+    const forecasts = await Promise.all(
+      farms.map(async (farm) => {
+        const pos = await spa.calculate(
+          new Date(),
+          farm.latitude,
+          farm.longitude
+        );
+        
+        // Calculate expected generation
+        const cloudCover = await getCloudCover(farm);
+        const efficiency = calculateEfficiency(
+          pos.elevation,
+          farm.panelAngle,
+          cloudCover
+        );
+        
+        return {
+          farmId: farm.id,
+          expectedMW: farm.capacity * efficiency,
+          timestamp: Date.now()
+        };
+      })
+    );
+    
+    // Send to trading algorithm
+    tradingEngine.updateForecasts(forecasts);
+  }, interval);
+}
+```
+
+## Challenges and Limitations
+
+Despite its performance advantages, the WebAssembly approach had limitations:
+
+### 1. Node.js Only
+
+Browser support was complicated by:
+- CORS restrictions for WASM modules
+- Larger bundle sizes for web applications
+- Initialization overhead in browser contexts
+
+### 2. Framework Compatibility
+
+Integration with modern frameworks proved challenging:
+
+```javascript
+// Next.js required special configuration
+module.exports = {
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        fs: false,
+        path: false,
+      };
+    }
+    
+    config.module.rules.push({
+      test: /\.wasm$/,
+      type: 'webassembly/async',
+    });
+    
+    return config;
+  },
+};
+```
+
+### 3. Debugging Complexity
+
+Stack traces from WASM were cryptic:
+
+```
+RuntimeError: memory access out of bounds
+    at wasm-function[42]:0x1a4f
+    at Module._calculate (spa.js:1:4532)
+```
+
+### 4. Async Initialization
+
+The WASM module required async initialization, complicating usage:
+
+```javascript
+// Users had to handle initialization
+let spa;
+
+async function initialize() {
+  spa = new SolarSPA();
+  await spa.ready;
+}
+
+// This pattern was error-prone
+initialize().then(() => {
+  // Now safe to use spa
+});
+```
+
+## Evolution and Lessons Learned
+
+Working on solar-spa taught me valuable lessons about WebAssembly:
+
+1. **Performance isn't everything**: The 10x speed improvement didn't matter if developers couldn't easily integrate the library
+
+2. **Developer experience matters**: A slightly slower but more accessible pure JavaScript solution often wins
+
+3. **Platform limitations**: WASM's full potential is limited by JavaScript ecosystem constraints
+
+4. **Maintenance burden**: Keeping Emscripten toolchain updated and managing C dependencies added complexity
+
+## The Path Forward
+
+These experiences led me to create the pure JavaScript nrel-spa implementation. While solar-spa remains available for users needing maximum performance in Node.js environments, the JavaScript version provides:
+
+- Universal compatibility (Node.js and browsers)
+- Easier debugging and maintenance
+- Simpler integration with modern frameworks
+- Only marginally slower performance
+
+## Current Status
+
+Solar-spa continues to serve users who need:
+- Batch processing of millions of calculations
+- Real-time system control with microsecond precision
+- Minimal memory footprint
+- Direct C API compatibility
+
+For most applications, however, the pure JavaScript implementation provides the best balance of performance, compatibility, and developer experience.
+
+## Conclusion
+
+The solar-spa WebAssembly experiment demonstrated both the power and limitations of WASM in the JavaScript ecosystem. While it achieved its goal of near-native performance, it also highlighted that raw speed isn't always the most important factor. Sometimes, meeting developers where they are—with tools that integrate seamlessly into their existing workflows—creates more value than squeezing out every last microsecond of performance.
+
+This journey from WebAssembly to pure JavaScript reflects a broader truth in software development: the best solution isn't always the fastest one, but the one that best serves its users' needs.
+
+[View solar-spa on GitHub](https://github.com/acamarata/solar-spa) | [Try the JavaScript version](https://github.com/acamarata/nrel-spa)

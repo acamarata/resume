@@ -1,0 +1,698 @@
+
+> tailwind-plus-template@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.4.4
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.2.10:3000
+
+ ✓ Starting...
+ ✓ Ready in 2.1s
+ ○ Compiling / ...
+ ✓ Compiled / in 1998ms (983 modules)
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ GET / 200 in 2419ms
+ GET / 200 in 207ms
+ GET / 200 in 232ms
+ GET / 200 in 186ms
+ ✓ Compiled in 965ms (1009 modules)
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ GET / 200 in 816ms
+ GET / 200 in 43ms
+ ✓ Compiled in 425ms (969 modules)
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ GET / 200 in 381ms
+ GET / 200 in 77ms
+ ✓ Compiled in 406ms (983 modules)
+ ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:3000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+ GET / 200 in 124ms
+ ✓ Compiled in 293ms (983 modules)
+ GET / 200 in 121ms
+ ✓ Compiled in 655ms (983 modules)
+ GET / 200 in 408ms
+ GET / 200 in 46ms
+ GET / 200 in 356ms
+ ○ Compiling /_error ...
+ ✓ Compiled /_error in 964ms (1297 modules)
+ ⨯ A conflicting public file and page file was found for path /favicon.ico https://nextjs.org/docs/messages/conflicting-public-file-page
+ GET /favicon.ico 500 in 1398ms
+ ⨯ A conflicting public file and page file was found for path /favicon.ico https://nextjs.org/docs/messages/conflicting-public-file-page
+ GET /favicon.ico 500 in 224ms
+ GET / 200 in 298ms
+ ⨯ A conflicting public file and page file was found for path /favicon.ico https://nextjs.org/docs/messages/conflicting-public-file-page
+ GET /favicon.ico 500 in 248ms
+ ⨯ A conflicting public file and page file was found for path /favicon.ico https://nextjs.org/docs/messages/conflicting-public-file-page
+ GET /favicon.ico 500 in 213ms
+ ⨯ A conflicting public file and page file was found for path /favicon.ico https://nextjs.org/docs/messages/conflicting-public-file-page
+ GET /favicon.ico 500 in 219ms
+ ⨯ A conflicting public file and page file was found for path /favicon.ico https://nextjs.org/docs/messages/conflicting-public-file-page
+ GET /favicon.ico 500 in 217ms
+ GET / 200 in 132ms
+ ⨯ A conflicting public file and page file was found for path /favicon.ico https://nextjs.org/docs/messages/conflicting-public-file-page
+ GET /favicon.ico 500 in 248ms
+ ⨯ A conflicting public file and page file was found for path /favicon.ico https://nextjs.org/docs/messages/conflicting-public-file-page
+ GET /favicon.ico 500 in 214ms
+ ⨯ A conflicting public file and page file was found for path /favicon.ico https://nextjs.org/docs/messages/conflicting-public-file-page
+ GET /favicon.ico 500 in 228ms
+ ⨯ A conflicting public file and page file was found for path /favicon.ico https://nextjs.org/docs/messages/conflicting-public-file-page
+ GET /favicon.ico 500 in 218ms
+ ✓ Compiled in 669ms (1224 modules)
+ GET / 200 in 622ms
+ GET / 200 in 36ms
+ ✓ Compiled in 462ms (1224 modules)
+ GET / 200 in 117ms
+ GET / 200 in 270ms
+ ○ Compiling /projects ...
+ ✓ Compiled /projects in 526ms (1220 modules)
+ GET /projects 200 in 612ms
+ ○ Compiling /blog ...
+ ✓ Compiled /blog in 511ms (1225 modules)
+ GET /blog 200 in 687ms
+ ○ Compiling /blog/introducing-nself-cli ...
+ ✓ Compiled /blog/introducing-nself-cli in 908ms (1238 modules)
+ GET /blog/introducing-nself-cli 200 in 1011ms
+ GET /blog 200 in 45ms
+ GET /projects 200 in 61ms
+ ✓ Compiled in 580ms (1252 modules)
+ GET /projects 200 in 138ms
+ GET /blog 200 in 128ms
+ GET /projects 200 in 72ms
+ ○ Compiling /work ...
+ ✓ Compiled /work in 1334ms (1243 modules)
+ GET /work 200 in 1569ms
+ GET /work 200 in 85ms
+ ✓ Compiled in 361ms (569 modules)
+ GET /work 200 in 116ms
+ ✓ Compiled in 728ms (1258 modules)
+ GET /work 200 in 149ms
+ ✓ Compiled in 135ms (569 modules)
+ GET /work 200 in 92ms
+ ✓ Compiled in 153ms (569 modules)
+ ✓ Compiled in 549ms (1244 modules)
+ GET /work 200 in 618ms
+ GET /work 200 in 181ms
+ GET /work 200 in 98ms
+ ✓ Compiled in 755ms (1244 modules)
+ GET /work 200 in 551ms
+ GET /work 200 in 90ms
+ ✓ Compiled in 184ms (569 modules)
+ ✓ Compiled in 464ms (1244 modules)
+ GET /work 200 in 490ms
+ GET /work 200 in 81ms
+ GET /work 200 in 71ms
+ ✓ Compiled in 578ms (1258 modules)
+ GET /work 200 in 94ms
+ GET /projects 200 in 64ms
+ GET /blog 200 in 72ms
+ ✓ Compiled in 742ms (1258 modules)
+ GET /blog 200 in 58ms
+ GET /projects 200 in 75ms
+ GET /blog 200 in 70ms
+ GET /projects 200 in 82ms
+ ✓ Compiled in 811ms (1258 modules)
+ GET /projects 200 in 101ms
+ GET /work 200 in 106ms
+ ✓ Compiled in 241ms (569 modules)
+ GET /work 200 in 309ms
+ GET / 200 in 65ms
+ GET /work 200 in 113ms
+ GET / 200 in 68ms
+ ✓ Compiled in 1025ms (1244 modules)
+ GET / 200 in 848ms
+ GET / 200 in 47ms
+ ✓ Compiled in 132ms (569 modules)
+ GET / 200 in 51ms
+ ✓ Compiled in 261ms (569 modules)
+ GET / 200 in 126ms
+ ✓ Compiled in 394ms (1258 modules)
+ GET / 200 in 196ms
+ ✓ Compiled in 625ms (1258 modules)
+ GET / 200 in 170ms
+   Reload env: .env
+ ✓ Compiled in 207ms (1244 modules)
+ GET / 200 in 69ms
+ ✓ Compiled in 183ms (569 modules)
+ GET / 200 in 176ms
+ ✓ Compiled in 793ms (1244 modules)
+ GET / 200 in 653ms
+ GET / 200 in 38ms
+ ✓ Compiled in 453ms (1258 modules)
+ GET / 200 in 66ms
+ ✓ Compiled in 898ms (1263 modules)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ GET / 200 in 908ms
+ GET / 200 in 1670ms
+   Reload env: .env
+   Reload env: .env
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ✓ Compiled in 4.7s (1249 modules)
+ GET / 200 in 301ms
+ GET / 200 in 564ms
+ ✓ Compiled in 138ms (571 modules)
+ GET / 200 in 81ms
+ ✓ Compiled in 149ms (571 modules)
+ GET / 200 in 54ms
+ ✓ Compiled in 197ms (571 modules)
+ GET / 200 in 104ms
+ ✓ Compiled in 220ms (571 modules)
+ GET / 200 in 69ms
+ ✓ Compiled in 296ms (571 modules)
+ GET / 200 in 95ms
+ ✓ Compiled in 163ms (571 modules)
+ GET / 200 in 105ms
+ ✓ Compiled in 210ms (571 modules)
+ GET / 200 in 102ms
+ ○ Compiling /api/contact ...
+ ✓ Compiled /api/contact in 714ms (1269 modules)
+ POST /api/contact 200 in 5263ms
+ POST /api/contact 200 in 544ms
+ GET /work 200 in 190ms
+ ✓ Compiled in 986ms (1283 modules)
+ GET /work 200 in 157ms
+ ✓ Compiled in 577ms (1264 modules)
+ GET /work 200 in 195ms
+ ✓ Compiled /api/contact in 134ms (711 modules)
+Attempting to send email via ElasticEmail...
+API Key present: 975092B117...
+Email params (without API key): {
+  apikey: '[REDACTED]',
+  from: 'noreply@ariccamarata.com',
+  fromName: 'Test User',
+  replyTo: 'test@example.com',
+  to: 'aric.camarata@gmail.com',
+  subject: 'Contact Form: Message from Test User',
+  bodyHtml: '\n' +
+    '        <h2>New Contact Form Submission</h2>\n' +
+    '        <p><strong>Name:</strong> Test User</p>\n' +
+    '        <p><strong>Email:</strong> test@example.com</p>\n' +
+    '        <p><strong>Message:</strong></p>\n' +
+    '        <p>This is a test message to debug ElasticEmail</p>\n' +
+    '      ',
+  bodyText: '\n' +
+    'New Contact Form Submission\n' +
+    '\n' +
+    'Name: Test User\n' +
+    'Email: test@example.com\n' +
+    'Message:\n' +
+    'This is a test message to debug ElasticEmail\n' +
+    '      '
+}
+ GET /work 200 in 184ms
+ElasticEmail response status: 200
+ElasticEmail response: {"success":true,"data":{"transactionid":"181b927a-6718-c2cf-007a-bde87328f0f9","messageid":"-YSJ9XRBkBM6dwLrw_Aslw2"}}
+Email sent successfully!
+ POST /api/contact 200 in 837ms
+ ✓ Compiled in 342ms (1283 modules)
+ GET /work 200 in 194ms
+ ✓ Compiled in 255ms (572 modules)
+ GET /work 200 in 117ms
+ ✓ Compiled in 292ms (1264 modules)
+ GET /work 200 in 179ms
+ ✓ Compiled in 227ms (572 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json',
+  page: '/work'
+}
+ ✓ Compiled /_error in 465ms (1337 modules)
+ ⨯ Error: Cannot find module './548.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/pages/_document.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/pages/_document.js:1:325)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /work 500 in 2378ms
+ ⨯ Error: Cannot find module './431.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/pages/_document.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/work/page.js:2:12520)
+    at Object.<anonymous> (.next/server/app/work/page.js:2:12582) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/work'
+}
+ ⨯ Error: Cannot find module './548.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/pages/_document.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/pages/_document.js:1:325)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /work 500 in 85ms
+ ✓ Compiled in 96ms (573 modules)
+ ✓ Compiled /_not-found in 234ms (1340 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json'
+}
+ GET /_next/static/webpack/b31b9b57107b42cb.webpack.hot-update.json 500 in 448ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⨯ Error: Cannot find module './431.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/_not-found/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/work/page.js:2:12520)
+    at Object.<anonymous> (.next/server/app/work/page.js:2:12582) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/work'
+}
+ ⨯ Error: Cannot find module './548.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/_not-found/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/pages/_document.js:1:325)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /work 500 in 39ms
+ ✓ Compiled in 155ms (573 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json'
+}
+ GET /_next/static/webpack/b31b9b57107b42cb.webpack.hot-update.json 500 in 156ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⨯ Error: Cannot find module './431.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/_not-found/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/work/page.js:2:12520)
+    at Object.<anonymous> (.next/server/app/work/page.js:2:12582) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/work'
+}
+ ⨯ Error: Cannot find module './548.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/_not-found/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/pages/_document.js:1:325)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /work 500 in 74ms
+ ✓ Compiled in 172ms (573 modules)
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json'
+}
+ GET /_next/static/webpack/b31b9b57107b42cb.webpack.hot-update.json 500 in 159ms
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⨯ Error: Cannot find module './431.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/_not-found/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/work/page.js:2:12520)
+    at Object.<anonymous> (.next/server/app/work/page.js:2:12581) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/work'
+}
+ ⨯ Error: Cannot find module './548.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/_not-found/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/pages/_document.js:1:325)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /work 500 in 43ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json'
+}
+ GET /_next/static/chunks/fallback/webpack.js 500 in 521ms
+ GET /_next/static/chunks/fallback/main.js 500 in 516ms
+ GET /_next/static/chunks/fallback/react-refresh.js 500 in 516ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json'
+}
+ GET /_next/static/chunks/fallback/pages/_error.js 500 in 271ms
+ GET /_next/static/chunks/fallback/pages/_app.js 500 in 271ms
+[Error: ENOENT: no such file or directory, stat '/Users/admin/Sites/resume/.next/cache/webpack/server-development/4.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/admin/Sites/resume/.next/cache/webpack/server-development/4.pack.gz'
+}
+ ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat '/Users/admin/Sites/resume/.next/cache/webpack/server-development/4.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/admin/Sites/resume/.next/cache/webpack/server-development/4.pack.gz'
+}
+ ⨯ unhandledRejection:  [Error: ENOENT: no such file or directory, stat '/Users/admin/Sites/resume/.next/cache/webpack/server-development/4.pack.gz'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'stat',
+  path: '/Users/admin/Sites/resume/.next/cache/webpack/server-development/4.pack.gz'
+}
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, stat '/Users/admin/Sites/resume/.next/cache/webpack/server-development/4.pack.gz'
+ ⨯ Error: Cannot find module './431.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/_not-found/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/work/page.js:2:12520)
+    at Object.<anonymous> (.next/server/app/work/page.js:2:12581) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/work'
+}
+ ⨯ Error: Cannot find module './548.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/_not-found/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/pages/_document.js:1:325)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /work 500 in 64ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json'
+}
+ GET /_next/static/chunks/fallback/webpack.js 500 in 516ms
+ GET /_next/static/chunks/fallback/main.js 500 in 515ms
+ GET /_next/static/chunks/fallback/react-refresh.js 500 in 515ms
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json'
+}
+ ⨯ [Error: ENOENT: no such file or directory, open '/Users/admin/Sites/resume/.next/routes-manifest.json'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/admin/Sites/resume/.next/routes-manifest.json'
+}
+ GET /_next/static/chunks/fallback/pages/_app.js 500 in 270ms
+ GET /_next/static/chunks/fallback/pages/_error.js 500 in 271ms
+ ✓ Compiled in 288ms (1354 modules)
+ ⨯ Error: Cannot find module './431.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/work/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/work/page.js:2:12520)
+    at Object.<anonymous> (.next/server/app/work/page.js:2:12581) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/work'
+}
+ ⨯ Error: Cannot find module './548.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/work/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/pages/_document.js:1:325)
+    at Object.<anonymous> (.next/server/pages/_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /work 500 in 67ms
+ ⨯ Error: Cannot find module './431.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/work/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7611)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7668) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './431.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/work/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7611)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7668) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './431.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/work/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7611)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7668) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /_next/static/chunks/fallback/webpack.js 500 in 97ms
+ GET /_next/static/chunks/fallback/main.js 500 in 96ms
+ GET /_next/static/chunks/fallback/react-refresh.js 500 in 97ms
+ ⨯ Error: Cannot find module './431.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/work/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7611)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7668) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ ⨯ Error: Cannot find module './431.js'
+Require stack:
+- /Users/admin/Sites/resume/.next/server/webpack-runtime.js
+- /Users/admin/Sites/resume/.next/server/app/work/page.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/require.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/load-components.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/utils.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/options.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/swc/index.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/parse-module.js
+- /Users/admin/Sites/resume/node_modules/next/dist/build/analysis/get-page-static-info.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-utils/setup-dev-bundler.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/router-server.js
+- /Users/admin/Sites/resume/node_modules/next/dist/server/lib/start-server.js
+    at <unknown> (.next/server/app/_not-found/page.js:2:7611)
+    at Object.<anonymous> (.next/server/app/_not-found/page.js:2:7668) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+ GET /_next/static/chunks/fallback/pages/_app.js 500 in 52ms
+ GET /_next/static/chunks/fallback/pages/_error.js 500 in 51ms
+[?25h
